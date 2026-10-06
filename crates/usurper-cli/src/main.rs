@@ -1,3 +1,7 @@
+use usurper::device;
+
 fn main() {
-    println!("Hello, world!");
+    let device = device::Device::new();
+    print!("{} : {}", device.platform, device.hostname);
 }
+
