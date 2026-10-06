@@ -1,0 +1,8 @@
+[package]
+name = "usurper"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gethostname = "1.1.0"
+uuid = "1.27.0"
