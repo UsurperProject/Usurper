@@ -4,13 +4,17 @@ mod windows_storage;
 #[cfg(target_os = "windows")]
 pub use windows_storage::*;
 
-#[cfg(target_os = "windows")]
+#[cfg(target_os = "linux")]
 mod linux_storage;
 
-#[cfg(target_os = "windows")]
+#[cfg(target_os = "linux")]
 pub use linux_storage::*;
 
 use uuid::Uuid;
+
+pub struct DiskManager {
+    disks_count: usize
+}
 
 pub enum PartitionFormats {
     Ntfs,
@@ -23,10 +27,11 @@ pub enum PartitionFormats {
     Raw,
     Swao
 }
-pub struct PartitionInfo {
+
+pub struct PartitionManager {
+    pub serial_id: usize,
     pub uuid: Uuid,
     pub size_mb: usize,
     pub format: PartitionFormats,
-    pub name: String, 
+    pub label: String, 
 }
-
